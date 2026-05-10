@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Clientes</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Registro de Cliente</h2>
+
+    <input type="text" id="nombre" placeholder="Nombre">
+    <input type="text" id="apellido" placeholder="Apellido">
+    <input type="number" id="edad" placeholder="Edad">
+    <input type="text" id="cedula" placeholder="Cédula">
+    <input type="email" id="correo" placeholder="Correo">
+    <input type="text" id="telefono" placeholder="Teléfono">
+
+    <p id="error" class="error"></p>
+
+    <button onclick="guardar()">Guardar</button>
+</div>
+
+<div class="tabla-container">
+    <h2>Clientes Registrados</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Edad</th>
+                <th>Cédula</th>
+                <th>Correo</th>
+                <th>Teléfono</th>
+            </tr>
+        </thead>
+        <tbody id="tablaClientes"></tbody>
+    </table>
+</div>
+
+<script>
+function guardar() {
+    let nombre = document.getElementById("nombre").value;
+    let apellido = document.getElementById("apellido").value;
+    let edad = document.getElementById("edad").value;
+    let cedula = document.getElementById("cedula").value;
+    let correo = document.getElementById("correo").value;
+    let telefono = document.getElementById("telefono").value;
+
+    let error = document.getElementById("error");
+
+    if (nombre === "" || apellido === "" || edad === "" || cedula === "" || correo === "") {
+        error.textContent = "Los campos obligatorios deben completarse";
+        return;
+    }
+
+    if (cedula.length !== 10) {
+        error.textContent = "La cédula debe tener 10 dígitos";
+        return;
+    }
+
+    if (edad <= 0) {
+        error.textContent = "La edad debe ser válida";
+        return;
+    }
+
+    error.textContent = "";
+
+    let fila = document.createElement("tr");
+
+    fila.innerHTML = `
+        <td>${nombre}</td>
+        <td>${apellido}</td>
+        <td>${edad}</td>
+        <td>${cedula}</td>
+        <td>${correo}</td>
+        <td>${telefono}</td>
+    `;
+
+    document.getElementById("tablaClientes").appendChild(fila);
+
+    document.getElementById("nombre").value = "";
+    document.getElementById("apellido").value = "";
+    document.getElementById("edad").value = "";
+    document.getElementById("cedula").value = "";
+    document.getElementById("correo").value = "";
+    document.getElementById("telefono").value = "";
+}
+</script>
+
+</body>
+</html>

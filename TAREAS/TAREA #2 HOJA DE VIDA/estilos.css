@@ -1,0 +1,92 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #e5e7eb;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.cv {
+    display: flex;
+    max-width: 900px;
+    margin: 30px auto;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    align-items: stretch; /* Hace que ambos lados tengan la misma altura */
+}
+
+/* LADO IZQUIERDO (CONTENIDO) */
+.lado-der {
+    width: 70%;
+    padding: 20px;
+}
+
+/* LADO DERECHO (DATOS PERSONALES) */
+.lado-izq {
+    width: 30%;
+    background: #1e293b;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    min-height: 100%;
+}
+
+/* FOTO */
+.lado-izq img {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+/* LISTA DE COMPETENCIAS */
+.lado-izq ul {
+    list-style: disc;
+    padding-left: 20px;
+    text-align: left;
+}
+
+.lado-izq ul li {
+    margin-bottom: 5px;
+}
+
+/* BLOQUES DE CONTENIDO */
+.bloque {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-left: 4px solid #2563eb;
+    background: #f9fafb;
+    border-radius: 5px;
+}
+
+/* TITULOS */
+h1 {
+    color: #1e293b;
+}
+
+h2 {
+    color: #2563eb;
+}
+
+/* LISTAS GENERALES */
+ul {
+    padding-left: 20px;
+}
+
+/* TABLA */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background: #2563eb;
+    color: white;
+}
