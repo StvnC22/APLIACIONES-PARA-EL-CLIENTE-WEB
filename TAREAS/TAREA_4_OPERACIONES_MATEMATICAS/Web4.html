@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operaciones con Bucle de 5 Iteraciones</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Calculadora con 5 Iteraciones</h2>
+
+    <input type="number" id="numero1" placeholder="Ingrese el primer número">
+    <input type="number" id="numero2" placeholder="Ingrese el segundo número">
+
+    <p id="error" class="error"></p>
+
+    <button onclick="calcular()">Calcular Operaciones</button>
+</div>
+
+<div class="tabla-container">
+    <h2>Resultados de las Iteraciones</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Iteración</th>
+                <th>Operación</th>
+                <th>Resultado</th>
+            </tr>
+        </thead>
+        <tbody id="tablaResultados">
+        </tbody>
+    </table>
+</div>
+
+<script>
+function calcular() {
+    let numero1 = parseFloat(document.getElementById("numero1").value);
+    let numero2 = parseFloat(document.getElementById("numero2").value);
+    let error = document.getElementById("error");
+    let tabla = document.getElementById("tablaResultados");
+
+    // Limpiar mensajes y resultados anteriores
+    error.textContent = "";
+    tabla.innerHTML = "";
+
+    // Validar que ambos campos tengan valores numéricos
+    if (isNaN(numero1) || isNaN(numero2)) {
+        error.textContent = "Por favor, ingrese ambos números.";
+        return;
+    }
+
+    // Bucle de 5 iteraciones
+    for (let i = 1; i <= 5; i++) {
+        let operacion = "";
+        let resultado;
+
+        if (i === 1) {
+            operacion = "Suma";
+            resultado = numero1 + numero2;
+        } else if (i === 2) {
+            operacion = "Resta";
+            resultado = numero1 - numero2;
+        } else if (i === 3) {
+            operacion = "Multiplicación";
+            resultado = numero1 * numero2;
+        } else if (i === 4) {
+            operacion = "División";
+
+            if (numero2 === 0) {
+                resultado = "No se puede dividir para cero";
+            } else {
+                resultado = numero1 / numero2;
+            }
+        } else if (i === 5) {
+            operacion = "Módulo (%)";
+
+            if (numero2 === 0) {
+                resultado = "No se puede calcular el módulo con cero";
+            } else {
+                resultado = numero1 % numero2;
+            }
+        }
+
+        // Crear una nueva fila en la tabla
+        let fila = document.createElement("tr");
+
+        fila.innerHTML = `
+            <td>${i}</td>
+            <td>${operacion}</td>
+            <td>${resultado}</td>
+        `;
+
+        // Agregar la fila a la tabla
+        tabla.appendChild(fila);
+    }
+}
+</script>
+
+</body>
+</html>
