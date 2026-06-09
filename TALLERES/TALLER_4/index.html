@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taller 4: Gestor de Tareas Semiestructurado</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <main class="contenedor">
+    <header class="encabezado">
+      <span class="etiqueta-taller">Taller 4 - Aplicaciones Web</span>
+      <h1>Gestor de Tareas Académicas</h1>
+      <p>
+        Aplicación web que permite registrar tareas, guardarlas en LocalStorage
+        y exportarlas en formatos semiestructurados JSON y XML.
+      </p>
+    </header>
+
+    <section class="tarjeta-formulario" aria-labelledby="titulo-formulario">
+      <h2 id="titulo-formulario">Registrar nueva tarea</h2>
+
+      <form id="formulario-tareas">
+        <label for="titulo-tarea">Título de la tarea</label>
+        <input
+          type="text"
+          id="titulo-tarea"
+          placeholder="Ejemplo: Investigar formatos JSON y XML"
+          maxlength="80"
+          required
+        >
+
+        <label for="descripcion-tarea">Descripción</label>
+        <textarea
+          id="descripcion-tarea"
+          placeholder="Describe brevemente la actividad académica"
+          rows="4"
+          maxlength="250"
+          required
+        ></textarea>
+
+        <button type="submit">Agregar tarea</button>
+      </form>
+    </section>
+
+    <section class="acciones-datos" aria-label="Opciones de exportación">
+      <button id="btn-exportar-json" class="btn-secundario">Exportar a JSON</button>
+      <button id="btn-exportar-xml" class="btn-secundario">Exportar a XML</button>
+      <button id="btn-limpiar" class="btn-peligro">Limpiar todo</button>
+    </section>
+
+    <section class="seccion-tareas" aria-labelledby="titulo-lista">
+      <h2 id="titulo-lista">Mis tareas activas</h2>
+      <p id="mensaje-vacio" class="mensaje-vacio">Aún no hay tareas registradas.</p>
+      <ul id="lista-tareas"></ul>
+    </section>
+  </main>
+
+  <script src="aplicacion.js"></script>
+</body>
+</html>
