@@ -80,17 +80,9 @@
         </div>
       </div>
 
-      <!-- Menú superior -->
-      <nav class="menu">
-        <button class="menu-btn active" data-section="dashboard">Inicio</button>
-        <button class="menu-btn" data-section="estudiantes">Estudiantes</button>
-        <button class="menu-btn" data-section="docentes">Docentes</button>
-        <button class="menu-btn" data-section="temas">Temas</button>
-        <button class="menu-btn" data-section="asignaciones">Asignación Tutor</button>
-        <button class="menu-btn" data-section="tutorias">Tutorías</button>
-        <button class="menu-btn" data-section="avances">Avances</button>
-        <button class="menu-btn" data-section="reportes">Reportes</button>
-        <button class="menu-btn" data-section="csv">CSV</button>
+      <!-- Menú superior controlado con Vue -->
+      <nav id="vueMenu" class="menu">
+        <!-- Vue renderiza aquí las opciones del menú -->
       </nav>
 
       <div class="user-box">
@@ -126,6 +118,11 @@
           <button class="btn light" onclick="recargarDatosDesdeCSV()">
             Recargar CSV inicial
           </button>
+        </div>
+
+        <!-- Componente Vue: indicador del framework utilizado -->
+        <div id="vueFrameworkBadge" class="vue-framework-wrapper">
+          <!-- Vue renderiza aquí la información del framework -->
         </div>
 
         <div class="stats-grid">
@@ -228,73 +225,9 @@
               <input id="apellidos" required placeholder="Ingrese apellidos" />
             </div>
 
-            <div class="field">
-              <label>Carrera *</label>
-              <select id="carrera" required>
-                <option value="">Seleccione</option>
-
-                <option>Medicina</option>
-                <option>Odontología</option>
-                <option>Enfermería</option>
-                <option>Fisioterapia</option>
-                <option>Fonoaudiología</option>
-                <option>Laboratorio Clínico</option>
-                <option>Terapia Ocupacional</option>
-                <option>Psicología</option>
-
-                <option>Administración de Empresas</option>
-                <option>Mercadotecnia</option>
-                <option>Contabilidad y Auditoría</option>
-                <option>Auditoría y Control de Gestión</option>
-                <option>Finanzas</option>
-                <option>Comercio Exterior</option>
-                <option>Gestión de la Información Gerencial</option>
-
-                <option>Educación Inicial</option>
-                <option>Educación Especial</option>
-                <option>Psicología Educativa</option>
-                <option>Educación Básica</option>
-                <option>Pedagogía de la Actividad Física y el Deporte</option>
-                <option>Pedagogía de la Lengua y la Literatura</option>
-                <option>Pedagogía de los Idiomas Nacionales y Extranjeros</option>
-                <option>Turismo</option>
-                <option>Hospitalidad y Hotelería</option>
-                <option>Artes Plásticas</option>
-                <option>Sociología</option>
-
-                <option>Ingeniería Civil</option>
-                <option>Ingeniería Marítima</option>
-                <option>Electricidad</option>
-                <option>Arquitectura</option>
-                <option>Ingeniería Industrial</option>
-                <option>Ingeniería de Alimentos</option>
-
-                <option>Ingeniería Agropecuaria</option>
-                <option>Agronegocios</option>
-                <option>Ingeniería Agroindustrial</option>
-                <option>Ingeniería Ambiental</option>
-                <option>Ingeniería en Tecnologías de la Información</option>
-                <option>Ingeniería en Software</option>
-                <option>Ingeniería en Sistema</option>
-                <option>Biología</option>
-
-                <option>Derecho</option>
-                <option>Economía</option>
-                <option>Trabajo Social</option>
-                <option>Comunicación</option>
-              </select>
-            </div>
-
-            <div class="field">
-              <label>Nivel *</label>
-              <select id="nivel" required>
-                <option value="">Seleccione</option>
-                <option>7mo</option>
-                <option>8vo</option>
-                <option>9no</option>
-                <option>10mo</option>
-                <option>11vo</option>
-              </select>
+            <!-- Componente Vue: Carrera y Nivel -->
+            <div id="vueCarreraNivel" class="form-grid vue-form-pair">
+              <!-- Vue renderiza aquí carrera y nivel -->
             </div>
 
             <div class="field">
@@ -995,7 +928,16 @@
   <!-- Mensajes emergentes -->
   <div id="toast" class="toast"></div>
 
-  <!-- Archivo JavaScript -->
+  <!-- Vue 3 por CDN -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+
+  <!-- Configuración de carreras y semestres para Vue -->
+  <script src="src/vue/carreras-config.js"></script>
+
+  <!-- Lógica principal original del sistema -->
   <script src="app.js"></script>
+
+  <!-- Componentes Vue integrados al proyecto -->
+  <script src="src/vue/vue-app.js"></script>
 </body>
 </html>

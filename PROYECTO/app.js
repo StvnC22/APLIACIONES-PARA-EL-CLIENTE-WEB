@@ -33,6 +33,54 @@ let db = {
 let ultimoReporte = [];
 
 /* =========================================================
+   SOPORTE PARA VUE: CARRERAS Y NIVELES ULEAM
+   ========================================================= */
+
+/*
+  Estas funciones permiten que el sistema original y los
+  componentes Vue trabajen con la misma regla de semestres.
+*/
+
+function obtenerNivelesPorCarrera(carrera) {
+  if (typeof window.obtenerNivelesULEAM === "function") {
+    return window.obtenerNivelesULEAM(carrera);
+  }
+
+  return [];
+}
+
+function actualizarNivelesPorCarrera() {
+  const selectCarrera = document.getElementById("carrera");
+  const selectNivel = document.getElementById("nivel");
+
+  if (!selectCarrera || !selectNivel) {
+    return;
+  }
+
+  const carrera = selectCarrera.value;
+  const valorActual = selectNivel.value;
+  const niveles = obtenerNivelesPorCarrera(carrera);
+
+  selectNivel.innerHTML = `
+    <option value="">
+      ${carrera ? "Seleccione el nivel" : "Primero seleccione una carrera"}
+    </option>
+    ${niveles.map((nivel) => {
+      return `<option value="${nivel}">${nivel}</option>`;
+    }).join("")}
+  `;
+
+  if (niveles.includes(valorActual)) {
+    selectNivel.value = valorActual;
+  }
+
+  if (window.vueCarreraNivel) {
+    window.vueCarreraNivel.sincronizarDesdeDOM();
+  }
+}
+
+
+/* =========================================================
    EVENTOS INICIALES
    ========================================================= */
 
@@ -43,6 +91,12 @@ document.addEventListener("DOMContentLoaded", () => {
   configurarBuscadores();
   colocarFechasIniciales();
   cargarPreferenciaModoOscuro();
+
+  const selectCarrera = document.getElementById("carrera");
+
+  if (selectCarrera) {
+    selectCarrera.addEventListener("change", actualizarNivelesPorCarrera);
+  }
 });
 
 /* =========================================================
@@ -504,6 +558,15 @@ function guardarEstudiante(event) {
   const id = document.getElementById("estudianteId").value;
   const cedula = document.getElementById("cedula").value.trim();
 
+  const carreraSeleccionada = document.getElementById("carrera").value;
+  const nivelSeleccionado = document.getElementById("nivel").value;
+  const nivelesValidos = obtenerNivelesPorCarrera(carreraSeleccionada);
+
+  if (!nivelesValidos.includes(nivelSeleccionado)) {
+    mostrarMensaje("El nivel seleccionado no corresponde a la duración de la carrera.");
+    return;
+  }
+
   const duplicado = db.estudiantes.find((item) => {
     return item.cedula === cedula && Number(item.id_estudiante) !== Number(id);
   });
@@ -598,7 +661,15 @@ function editarEstudiante(id) {
   document.getElementById("nombres").value = item.nombres;
   document.getElementById("apellidos").value = item.apellidos;
   document.getElementById("carrera").value = item.carrera;
+
+  actualizarNivelesPorCarrera();
+
   document.getElementById("nivel").value = item.nivel;
+
+  if (window.vueCarreraNivel) {
+    window.vueCarreraNivel.sincronizarDesdeDOM();
+  }
+
   document.getElementById("correo").value = item.correo;
   document.getElementById("telefono").value = item.telefono;
   document.getElementById("estadoEstudiante").value = item.estado;
