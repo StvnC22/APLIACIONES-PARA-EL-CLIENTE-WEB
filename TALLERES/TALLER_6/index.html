@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taller 6 CRUD - Libros</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <div class="contenedor">
+    <header>
+      <h1>Gestión de Libros</h1>
+      <p>Taller 6 CRUD con HTML, CSS, JavaScript y LocalStorage</p>
+    </header>
+
+    <main>
+      <section class="card">
+        <h2>Añadir / Editar Libro</h2>
+
+        <form id="formulario">
+          <input type="hidden" id="idLibro">
+
+          <label for="titulo">Título del libro</label>
+          <input type="text" id="titulo" placeholder="Ej. Cien años de soledad" required>
+
+          <label for="autor">Autor</label>
+          <input type="text" id="autor" placeholder="Ej. Gabriel García Márquez" required>
+
+          <button type="submit" id="btnGuardar">Guardar Libro</button>
+          <button type="button" id="btnCancelar" class="oculto">Cancelar Edición</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>Listado de Libros</h2>
+
+        <div class="tabla-responsiva">
+          <table>
+            <thead>
+              <tr>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="tablaLibros"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="aplicacion.js"></script>
+</body>
+</html>

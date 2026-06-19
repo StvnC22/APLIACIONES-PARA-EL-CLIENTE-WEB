@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Estudiantes</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Registro de Estudiantes</h1>
+      <p>Validaciones con expresiones regulares, JSON y LocalStorage</p>
+    </header>
+
+    <section class="card">
+      <form id="form">
+        <div><label>Cédula</label><input id="cedula" maxlength="10"><span id="eCedula"></span></div>
+        <div><label>Apellidos</label><input id="apellidos"><span id="eApellidos"></span></div>
+        <div><label>Nombres</label><input id="nombres"><span id="eNombres"></span></div>
+        <div><label>Dirección</label><input id="direccion"><span id="eDireccion"></span></div>
+        <div><label>Teléfono</label><input id="telefono" maxlength="10"><span id="eTelefono"></span></div>
+        <div><label>Correo</label><input id="correo"><span id="eCorreo"></span></div>
+
+        <div>
+          <label>Facultad</label>
+          <select id="facultad">
+            <option value="">Seleccione</option>
+            <option>Informática</option><option>Derecho</option>
+            <option>Salud</option><option>Educación</option>
+          </select>
+          <span id="eFacultad"></span>
+        </div>
+
+        <div>
+          <label>Nivel</label>
+          <select id="nivel">
+            <option value="">Seleccione</option>
+            <option>Primero</option><option>Segundo</option><option>Tercero</option>
+            <option>Cuarto</option><option>Quinto</option><option>Sexto</option>
+            <option>Séptimo</option><option>Octavo</option><option>Noveno</option>
+          </select>
+          <span id="eNivel"></span>
+        </div>
+
+        <div>
+          <label>Paralelo</label>
+          <select id="paralelo">
+            <option value="">Seleccione</option>
+            <option>A</option><option>B</option><option>C</option>
+          </select>
+          <span id="eParalelo"></span>
+        </div>
+
+        <button>Guardar</button>
+        <button type="reset" class="limpiar">Limpiar</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Estudiantes Registrados</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Cédula</th><th>Apellidos</th><th>Nombres</th><th>Teléfono</th>
+            <th>Correo</th><th>Facultad</th><th>Nivel</th><th>Paralelo</th><th>Acción</th>
+          </tr>
+        </thead>
+        <tbody id="tabla"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="aplicacion.js"></script>
+</body>
+</html>

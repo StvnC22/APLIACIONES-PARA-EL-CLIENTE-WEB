@@ -1,0 +1,142 @@
+:root {
+  --azul: #2563eb;
+  --verde: #16a34a;
+  --rojo: #dc2626;
+  --gris: #64748b;
+  --fondo: #eef4ff;
+  --texto: #172033;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Segoe UI, sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
+  padding: 25px;
+}
+
+.contenedor {
+  max-width: 950px;
+  margin: auto;
+}
+
+header {
+  text-align: center;
+  background: linear-gradient(135deg, #1e3a8a, var(--azul));
+  color: white;
+  padding: 30px;
+  border-radius: 18px;
+  margin-bottom: 25px;
+}
+
+header h1 {
+  margin-bottom: 8px;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 25px;
+}
+
+.card {
+  background: white;
+  padding: 22px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px #0002;
+}
+
+h2 {
+  color: #1e3a8a;
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin: 12px 0 6px;
+}
+
+input {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--azul);
+  box-shadow: 0 0 0 3px #2563eb33;
+}
+
+button {
+  width: 100%;
+  border: none;
+  padding: 11px;
+  border-radius: 8px;
+  margin-top: 12px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#btnGuardar {
+  background: var(--verde);
+}
+
+#btnCancelar {
+  background: var(--gris);
+}
+
+.btn-editar {
+  background: var(--azul);
+  width: auto;
+  margin-right: 5px;
+  padding: 8px 12px;
+}
+
+.btn-eliminar {
+  background: var(--rojo);
+  width: auto;
+  padding: 8px 12px;
+}
+
+.oculto {
+  display: none;
+}
+
+.tabla-responsiva {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: left;
+}
+
+th {
+  background: #1e3a8a;
+  color: white;
+}
+
+tr:hover {
+  background: #f8fafc;
+}
+
+@media(max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+}
