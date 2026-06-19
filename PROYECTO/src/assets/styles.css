@@ -262,28 +262,6 @@ body {
    DASHBOARD
    ========================================================= */
 
-.hero-panel {
-  background: linear-gradient(135deg, #2563eb, #06b6d4);
-  border-radius: 24px;
-  padding: 28px;
-  color: var(--white);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: var(--shadow);
-  margin-bottom: 20px;
-}
-
-.hero-panel h2 {
-  margin: 0 0 6px;
-  font-size: 32px;
-}
-
-.hero-panel p {
-  margin: 0;
-  color: #eaffff;
-}
-
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -357,11 +335,27 @@ body {
 }
 
 .soft-blue {
-  background: linear-gradient(180deg, #ffffff, #f0f9ff);
+  background: linear-gradient(180deg, #1d4ed8, #2e9dcc);
+}
+
+.soft-green {
+  background: linear-gradient(180deg, #15803d, #37a55f);
+}
+
+.soft-purple {
+  background: linear-gradient(180deg, #7e22ce, #a855f7);
 }
 
 .soft-orange {
-  background: linear-gradient(180deg, #fff7ed, #ffffff);
+  background: linear-gradient(180deg, #d97706, #c7971c);
+}
+
+.soft-pink {
+  background: linear-gradient(180deg, #fb7185, #d185cb);
+}
+
+.soft-red {
+  background: linear-gradient(180deg, #dc2626, #f34f4f);
 }
 
 .card-title h3,
@@ -805,10 +799,6 @@ tbody tr:hover {
 
   .toolbar,
   .tools,
-  .hero-panel {
-    flex-direction: column;
-    align-items: stretch;
-  }
 
   .tools input {
     width: 100%;
@@ -845,11 +835,27 @@ body.dark-mode .login-card {
 }
 
 body.dark-mode .soft-blue {
-  background: linear-gradient(180deg, #1e293b, #0f253d);
+  background: linear-gradient(180deg, #1d4ed8, #2e9dcc);
+}
+
+body.dark-mode .soft-green {
+  background: linear-gradient(180deg, #15803d, #37a55f);
+}
+
+body.dark-mode .soft-purple {
+  background: linear-gradient(180deg, #7e22ce, #a855f7);
 }
 
 body.dark-mode .soft-orange {
-  background: linear-gradient(180deg, #1e293b, #2b2115);
+  background: linear-gradient(180deg, #d97706, #c7971c);
+}
+
+body.dark-mode .soft-pink {
+  background: linear-gradient(180deg, #fb7185, #d185cb);
+}
+
+body.dark-mode .soft-red {
+  background: linear-gradient(180deg, #dc2626, #f34f4f);
 }
 
 body.dark-mode .page-title h2,
@@ -1218,24 +1224,6 @@ body.dark-mode .vue-help {
 
 .alert-item p {
   margin: 5px 0 0;
-}
-
-/* Badge del dashboard Vue */
-.hero-badge {
-  background: rgba(255, 255, 255, 0.18);
-  padding: 18px;
-  border-radius: 18px;
-  text-align: center;
-}
-
-.hero-badge strong {
-  display: block;
-  font-size: 24px;
-}
-
-.hero-badge span {
-  color: #eaffff;
-  font-weight: 700;
 }
 
 /* Corrección del botón modo oscuro en Vue */

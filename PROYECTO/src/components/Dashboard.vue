@@ -1,22 +1,5 @@
 <template>
   <section class="page">
-    <div class="hero-panel">
-      <div>
-        <span class="eyebrow">Panel principal</span>
-
-        <h2>Dashboard del Sistema de Titulación</h2>
-
-        <p>
-          Resumen general del registro y control de trabajos de titulación,
-          estudiantes, tutores, avances y tutorías.
-        </p>
-      </div>
-
-      <div class="hero-badge">
-        <strong>Vue 3</strong>
-        <span>Framework implementado</span>
-      </div>
-    </div>
 
     <!-- TARJETAS ESTADÍSTICAS -->
     <div class="stats-grid">

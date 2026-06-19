@@ -2,7 +2,7 @@
   <section class="login-screen">
     <div class="login-info">
       <div class="login-logo">
-        <img src="/img/logo.png" alt="Logo del sistema" />
+        <img src="/img/logo2.png" alt="Logo del sistema" />
       </div>
 
       <h1>Sistema de Registro y Control de Trabajos de Titulación</h1>
