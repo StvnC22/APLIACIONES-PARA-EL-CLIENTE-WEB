@@ -1300,3 +1300,151 @@ body.dark-mode .vue-help {
     width: 100%;
   }
 }
+
+/* =========================================================
+   BUSCADOR DE ESTUDIANTES EN TUTORÍAS
+   ========================================================= */
+
+.student-search-box {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.student-selected {
+  margin-top: 12px;
+  padding: 13px;
+  border-radius: 16px;
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  color: #075985;
+}
+
+.student-selected strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.student-selected span {
+  font-weight: 900;
+}
+
+.student-selected p {
+  margin: 5px 0 0;
+  font-size: 13px;
+}
+
+body.dark-mode .student-selected {
+  background: #0f172a;
+  border-color: #334155;
+  color: #bae6fd;
+}
+
+/* =========================================================
+   FORMULARIO ARRIBA Y TABLA ABAJO EN TODOS LOS MÓDULOS
+   ========================================================= */
+
+.layout-two {
+  display: grid;
+  grid-template-columns: 1fr !important;
+  gap: 22px;
+  align-items: start;
+}
+
+.form-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.full-field {
+  grid-column: span 3;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.table-header input,
+.table-header select {
+  max-width: 300px;
+}
+
+.filter-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filter-row input,
+.filter-row select {
+  min-width: 240px;
+  flex: 1;
+}
+
+.student-search-box,
+.teacher-search-box {
+  display: grid;
+  gap: 10px;
+}
+
+.student-selected,
+.teacher-selected {
+  margin-top: 12px;
+  padding: 13px;
+  border-radius: 16px;
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  color: #075985;
+}
+
+.student-selected strong,
+.teacher-selected strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.student-selected span,
+.teacher-selected span {
+  font-weight: 900;
+}
+
+.student-selected p,
+.teacher-selected p {
+  margin: 5px 0 0;
+  font-size: 13px;
+}
+
+.order-select {
+  width: 230px;
+}
+
+body.dark-mode .student-selected,
+body.dark-mode .teacher-selected {
+  background: #0f172a;
+  border-color: #334155;
+  color: #bae6fd;
+}
+
+@media (max-width: 760px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .full-field {
+    grid-column: span 1;
+  }
+
+  .table-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .table-header input,
+  .table-header select {
+    max-width: 100%;
+  }
+}
